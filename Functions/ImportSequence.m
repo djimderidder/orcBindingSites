@@ -9,6 +9,7 @@ function [ output ] = ImportSequence( config )
     file = fopen(config.SequenceFile);
     importSequence = textscan(file,'%s');
     importSequence = importSequence{:};
+    importSequence = lower(importSequence);
     file = fclose(file);
     output = importSequence;
 end
