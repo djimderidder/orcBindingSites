@@ -1,4 +1,4 @@
-clc, clear all, close all
+clc, clear all
 
 cd 'H:\My Documents\MATLAB\orcBindingSites'
 
@@ -24,18 +24,18 @@ fprintf('This section performs the thresholding and normalisation.\n')
 figure()
 subplot(2,1,1)
 %plot(valueTop.*thresholdTop)
-imagesc(visualisation.procentTop); colormap(jet(numel(visualisation.procentTop))); colorbar;
-
-title(['ORC binding sites (top),',num2str((config.threshold*100)),'% threshold'])
-pbaspect([10 1 1])
+imagesc(visualisation.procentTop);
+pbaspect([20 1 1]);  set(gca,'YColor',[1 1 1]);
 %set(gca,'xtick',[1:length(importSequence)],'xticklabel',importSequence);
-set(gca,'YColor',[1 1 1]);
+colormap(jet(numel(visualisation.procentTop))); colorbar;
+
+title(['\fontsize{16}ORC binding sites top, 50% threshold'])
 
 subplot(2,1,2)
 %plot(valueBottom.*thresholdBottom)
-imagesc(visualisation.procentBottom); colormap(jet(numel(visualisation.procentBottom))); colorbar;
-
-title(['ORC binding sites (bottom),',num2str((config.threshold*100)),'% threshold'])
-pbaspect([10 1 1])
+imagesc(visualisation.procentBottom);
+pbaspect([20 1 1]); set(gca,'YColor',[1 1 1]);
 %set(gca,'xtick',[1:length(importSequence)],'xticklabel',importSequence);
-set(gca,'YColor',[1 1 1]);
+colormap(jet(numel(visualisation.procentBottom))); colorbar;
+
+title(['\fontsize{16}ORC binding sites bottom, 50% threshold'])
