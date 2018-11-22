@@ -6,7 +6,7 @@ function [ config ] = Config( config)
     addpath( genpath('./Input'))
     
     %Name imput sequence
-    config.SequenceFile = 'sequence_test.txt';
+    config.SequenceFile = 'sequence_48502.txt';
     
     %Import concensus
     importConsensus = readtable('ForwardConsensus.xlsx');
@@ -24,5 +24,5 @@ function [ config ] = Config( config)
     config.reverseConsensus.t = flipud(config.consensus.a);
     
     % Fill in the percentage threshold of max binding value
-    config.threshold = 0.8; %between 1 and 0
+    config.threshold = 0.5; %between 1 and 0
 end
