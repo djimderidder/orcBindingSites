@@ -16,13 +16,13 @@ function [ output ] = Analysis( config, importSequence)
         
         for jj=1:frameSize
              %Sum the the values of each nucleotide in the frame
-             if isequal(bpFrame(jj),{'A'})
+             if isequal(bpFrame(jj),{'a'})
                  valueTop(ii) = valueTop(ii)+config.consensus.a(jj);
                  valueBottom(ii) = valueBottom(ii)+config.reverseConsensus.a(jj);
-             elseif isequal(bpFrame(jj),{'C'})
+             elseif isequal(bpFrame(jj),{'c'})
                  valueTop(ii) = valueTop(ii)+config.consensus.c(jj);
                  valueBottom(ii) = valueBottom(ii)+config.reverseConsensus.c(jj);
-             elseif isequal(bpFrame(jj),{'G'})
+             elseif isequal(bpFrame(jj),{'g'})
                  valueTop(ii) = valueTop(ii)+config.consensus.g(jj);
                  valueBottom(ii) = valueBottom(ii)+config.reverseConsensus.g(jj);
              else
