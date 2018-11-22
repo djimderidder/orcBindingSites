@@ -1,11 +1,20 @@
 function [ output ] = Visualisation( config, analysis);
     % Gets the binding value for each of the #bp frames (both top and bottom strand)
     
-    thresholdTop=analysis.valueTop>=(max(analysis.valueTop)*config.threshold);
-    thresholdBottom=analysis.valueBottom>=max(analysis.valueBottom)*config.threshold;
-    %thresholdTop=analysis.valueTop>=9;
-    %thresholdBottom=analysis.valueBottom>=9;
+%     maxTop = max(analysis.valueBottom);
+%     maxBottom = max(analysis.valueTop);
+    maxValue = 12.743055;
+    minValue = 0.315971;
     
-    output.procentTop=(analysis.valueTop.*thresholdTop)./max(analysis.valueTop);
-    output.procentBottom=(analysis.valueBottom.*thresholdBottom)./max(analysis.valueBottom);
+%     thresholdTop=analysis.valueTop>=9;
+%     thresholdBottom=analysis.valueBottom>=9;
+%     thresholdTop=analysis.valueTop>=(maxTop*config.threshold);
+%     thresholdBottom=analysis.valueBottom>=maxBottom*config.threshold;
+    thresholdTop=analysis.valueTop>=(maxValue*config.threshold);
+    thresholdBottom=analysis.valueBottom>=maxValue*config.threshold;
+    
+%     output.procentTop=(analysis.valueTop.*thresholdTop)./maxTop;
+%     output.procentBottom=(analysis.valueBottom.*thresholdBottom)./maxBottom;
+    output.procentTop=((analysis.valueTop.*thresholdTop)-minValue)./(maxValue-minValue);
+    output.procentBottom=((analysis.valueBottom.*thresholdBottom)-minValue)./(maxValue-minValue);
 end
